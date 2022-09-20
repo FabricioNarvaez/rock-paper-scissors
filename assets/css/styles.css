@@ -20,7 +20,7 @@ header h1{
     text-align: center;
 }
 
-.container{
+#container{
     display: grid;
     justify-content: center;
     margin-top: 200px;
