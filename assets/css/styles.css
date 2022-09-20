@@ -1,15 +1,22 @@
 :root{
     --titleFont: 'Nabla', cursive;
-    --buttonFont: 'Reem Kufi Ink', sans-serif;
+    --gameFont: 'Reem Kufi Ink', sans-serif;
     --backgroundColor: rgb(71, 135, 255)
 }
 
+html {
+    min-height: 100%;
+    position: relative;
+}
+
 body{
-    background: radial-gradient(circle, var(--backgroundColor) 80%, rgba(71, 135, 255, 0.80) 100%);}
+    background-attachment: fixed;
+    background: radial-gradient(circle, var(--backgroundColor) 80%, rgba(71, 135, 255, 0.80) 100%);
+}
 
 header h1{
     font-family: var(--titleFont);
-    font-size: 50px;
+    font-size: 60px;
     text-align: center;
 }
 
@@ -27,9 +34,37 @@ header h1{
     border-radius: 15px;
     color: white;
     font-size: 20px;
-    font-family: var(--buttonFont);
+    font-family: var(--gameFont);
 }
 .buttonStyles:hover{
     color: var(--backgroundColor);
     box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+}
+
+.buttonsHeader{
+    font-family: var(--gameFont);
+    color: white;
+    font-size: 25px;
+}
+
+.buttonsHeader h2{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.buttonsGroup{
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
+}
+
+.buttonsGroup  img{
+    width: 100%;
+}
+
+.gameButton{
+    background-color: transparent;
+    border: none;
 }
