@@ -1,8 +1,35 @@
 :root{
     --titleFont: 'Nabla', cursive;
+    --buttonFont: 'Reem Kufi Ink', sans-serif;
+    --backgroundColor: rgb(71, 135, 255)
 }
+
+body{
+    background: radial-gradient(circle, var(--backgroundColor) 80%, rgba(71, 135, 255, 0.80) 100%);}
+
 header h1{
     font-family: var(--titleFont);
     font-size: 50px;
     text-align: center;
+}
+
+.container{
+    display: grid;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.buttonStyles{
+    width: 200px;
+    height: 50px;
+    background-color: orange;
+    border: 1px solid grey;
+    border-radius: 15px;
+    color: white;
+    font-size: 20px;
+    font-family: var(--buttonFont);
+}
+.buttonStyles:hover{
+    color: var(--backgroundColor);
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
 }
