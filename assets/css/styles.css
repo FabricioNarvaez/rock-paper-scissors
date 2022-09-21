@@ -6,8 +6,8 @@
 
 /* Global variables */
 html {
-    min-height: 100%;
-    position: relative;
+    /* min-height: 100%;
+    position: relative; */
 }
 
 body{
@@ -29,7 +29,7 @@ header h1{
 }
 
 /* Container */
-#containerStart{
+#startContainer{
     display: grid;
     justify-content: center;
     margin-top: 200px;
@@ -91,8 +91,11 @@ header h1{
     grid-template-columns: 1fr 0.5fr 1fr;
 }
 
+#resultGroup img{
+    max-width: 330px;
+}
 #vs{
-    max-width: 90px;
+    max-width: 90px !important;
 }
 
 /* Score */
@@ -109,4 +112,16 @@ header h1{
 #scoreContainer h2{
     margin: 0;
     font-size: 60px;
+}
+
+/* Winner */
+#winnerContainer{
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 50px;
+}
+
+#winnerContainer .buttonStyles{
+    margin-top: 20px;
 }

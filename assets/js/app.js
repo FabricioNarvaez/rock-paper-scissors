@@ -16,12 +16,20 @@ const scores = {
     machine: 0
 }
 
-const containerStart = document.getElementById("containerStart");
+// Containers
+const startContainer = document.getElementById("startContainer");
 const gameContainer = document.getElementById("gameContainer");
 const scoreContainer = document.getElementById("scoreContainer");
+const resultContainer = document.getElementById("resultGroup");
+const winnerContainer = document.getElementById("winnerContainer");
+
+// Continue
+resultContainer.addEventListener("click", ()=>{
+    resultContainer.setAttribute("hidden", "hidden");
+    gameContainer.removeAttribute("hidden");
+})
 
 // Result constants
-const resultContainer = document.getElementById("resultGroup");
 const resultText = document.getElementById("resultText");
 const yourOptionIMG = document.getElementById("yourOption");
 const machineOptionIMG = document.getElementById("machineOption");
@@ -29,15 +37,15 @@ const machineOptionIMG = document.getElementById("machineOption");
 // Score constants
 const yourScore = document.getElementById("yourScore");
 const machineScore = document.getElementById("machineScore");
+const winnerText = document.getElementById("winnerText");
 
 // Functions
 function start(){
-    containerStart.style.display = "none";
+    startContainer.style.display = "none";
     gameContainer.removeAttribute("hidden");
     scoreContainer.removeAttribute("hidden");
-    console.log(scores["you"])
-    yourScore.innerHTML = `${scores["you"]}`;
-    machineScore.innerHTML = `${scores["machine"]}`;
+    yourScore.innerHTML = `${scores.you}`;
+    machineScore.innerHTML = `${scores.machine}`;
 }
 
 function game(userOption){
@@ -62,25 +70,41 @@ function result(result, userOption, machineOption){
     gameContainer.setAttribute("hidden", "hidden");
     resultContainer.removeAttribute("hidden");
 
+
     // result === true => Win
     switch (result) {
         case "win":
+            scores.you += 1;
+            yourScore.innerHTML = `${scores["you"]}`;
             resultText.innerHTML = "¡¡You have win!! :)";
             break;
         case "lose":
+            scores.machine += 1;
             resultText.innerHTML = "You have lost :(";
+            machineScore.innerHTML = `${scores["machine"]}`;
             break;
         case "tie":
             resultText.innerHTML = "Tie";
             break;
-    
         default:
             break;
     }
 
     // Set images
-    yourOptionIMG.setAttribute("src", imageSource[userOption])
-    machineOptionIMG.setAttribute("src", imageSource[machineOption])
+    yourOptionIMG.setAttribute("src", imageSource[userOption]);
+    machineOptionIMG.setAttribute("src", imageSource[machineOption]);
+    checkWinner();
+}
 
-
+function checkWinner(){
+    if(scores.you === 3){
+        resultGroup.setAttribute("hidden", "hidden");
+        winnerContainer.style.setProperty("display", "grid", "important");
+        winnerText.innerHTML = "¡¡CONGRATULATIONS!! You have WIN the game."
+    }
+    if(scores.machine === 3){
+        resultGroup.setAttribute("hidden", "hidden");
+        winnerContainer.style.setProperty("display", "grid", "important");
+        winnerText.innerHTML = "SORRY :(. You have LOST the game."
+    }
 }
