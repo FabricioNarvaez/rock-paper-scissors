@@ -82,6 +82,10 @@ header h1{
     margin: 0;
 }
 
+#resultGroup h3{
+    margin: 0px;
+}
+
 #result{
     width: 100%;
     max-width: 1000px;
@@ -125,6 +129,19 @@ header h1{
 
 #winnerContainer .buttonStyles{
     margin-top: 20px;
+}
+
+/* Footer bottom of page */
+body{
+    height:100vh;
+    margin: 0;
+    text-align: center;
+    display:flex; 
+    flex-direction:column; 
+}
+
+footer{
+    margin-top:auto; 
 }
 
 /* Media queries */

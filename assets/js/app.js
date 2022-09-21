@@ -1,4 +1,4 @@
-// Key win value
+// Key wins value
 const options = {
     rock : "scissors",
     paper : "rock",
@@ -17,10 +17,10 @@ const scores = {
 }
 
 // Containers
-const startContainer = document.getElementById("startContainer");
 const gameContainer = document.getElementById("gameContainer");
-const scoreContainer = document.getElementById("scoreContainer");
 const resultContainer = document.getElementById("resultGroup");
+const scoreContainer = document.getElementById("scoreContainer");
+const startContainer = document.getElementById("startContainer");
 const winnerContainer = document.getElementById("winnerContainer");
 
 // Continue
@@ -30,14 +30,14 @@ resultContainer.addEventListener("click", ()=>{
 })
 
 // Result constants
+const machineOptionIMG = document.getElementById("machineOption");
 const resultText = document.getElementById("resultText");
 const yourOptionIMG = document.getElementById("yourOption");
-const machineOptionIMG = document.getElementById("machineOption");
 
 // Score constants
-const yourScore = document.getElementById("yourScore");
 const machineScore = document.getElementById("machineScore");
 const winnerText = document.getElementById("winnerText");
+const yourScore = document.getElementById("yourScore");
 
 // Functions
 function start(){
@@ -53,7 +53,6 @@ function game(userOption){
     const numRandom = Math.floor(Math.random() * 3);
     const machineOption = machineOptions[numRandom];
 
-    
     if(userOption === machineOption){
         result("tie", userOption, machineOption)
     }else{
@@ -70,8 +69,6 @@ function result(result, userOption, machineOption){
     gameContainer.setAttribute("hidden", "hidden");
     resultContainer.removeAttribute("hidden");
 
-
-    // result === true => Win
     switch (result) {
         case "win":
             scores.you += 1;
@@ -93,6 +90,8 @@ function result(result, userOption, machineOption){
     // Set images
     yourOptionIMG.setAttribute("src", imageSource[userOption]);
     machineOptionIMG.setAttribute("src", imageSource[machineOption]);
+
+    // Check winner
     checkWinner();
 }
 
