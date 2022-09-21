@@ -29,13 +29,14 @@ header h1{
 }
 
 /* Container */
-#container{
+#containerStart{
     display: grid;
     justify-content: center;
     margin-top: 200px;
 }
 
 .buttonStyles{
+    color: white;
     width: 200px;
     height: 50px;
     background-color: orange;
@@ -72,16 +73,17 @@ header h1{
     border: none;
 }
 
-/* Win Group */
-#winGroup h2{
+/* Result Group */
+#resultGroup h2{
     display: grid;
     justify-content: center;
     font-size: 40px;
+    margin: 0;
 }
 
 #result{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     display: grid;
     justify-items: center;
@@ -90,5 +92,5 @@ header h1{
 }
 
 #vs{
-    max-width: 120px;
+    max-width: 90px;
 }

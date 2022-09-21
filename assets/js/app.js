@@ -1,15 +1,26 @@
 // Key win value
 const options = {
-    paper : "rock",
     rock : "scissors",
+    paper : "rock",
     scissors: "paper"
 }
 
+const imageSource = {
+    rock : "assets/images/rock.png",
+    paper : "assets/images/paper.png",
+    scissors : "assets/images/scissors.png"
+}
+
+const containerStart = document.getElementById("containerStart");
+const gameContainer = document.getElementById("gameContainer");
+
+const resultContainer = document.getElementById("resultGroup");
+const resultText = document.getElementById("resultText");
+const yourOptionIMG = document.getElementById("yourOption");
+const machineOptionIMG = document.getElementById("machineOption");
+
 function start(){
-    const container = document.getElementById("container");
-    const gameContainer = document.getElementById("gameContainer");
-    
-    container.style.display = "none";
+    containerStart.style.display = "none";
     gameContainer.removeAttribute("hidden");
 }
 
@@ -18,24 +29,42 @@ function game(userOption){
     const numRandom = Math.floor(Math.random() * 3);
     const machineOption = machineOptions[numRandom];
 
-    console.log(`Me: ${userOption}\nMachine:${machineOption}`)
+    
     if(userOption === machineOption){
-        tie();
+        result("tie", userOption, machineOption)
     }else{
         if(options[userOption] === machineOption){
-            console.log("Win")
+            result("win", userOption, machineOption)
         }else{
-            console.log("Lose")
+            result("lose", userOption, machineOption)
         }
     }
 }
 
-function tie(result){
-    alert("tie");
-}
-function win(result){
-    alert("win");
-}
-function lose(result){
-    alert("lose");
+function result(result, userOption, machineOption){
+    // Hide and show containers
+    gameContainer.setAttribute("hidden", "hidden");
+    resultContainer.removeAttribute("hidden");
+
+    // result === true => Win
+    switch (result) {
+        case "win":
+            resultText.innerHTML = "¡¡You have win!! :)";
+            break;
+        case "lose":
+            resultText.innerHTML = "You have lost :(";
+            break;
+        case "tie":
+            resultText.innerHTML = "Tie";
+            break;
+    
+        default:
+            break;
+    }
+
+    // Set images
+    yourOptionIMG.setAttribute("src", imageSource[userOption])
+    machineOptionIMG.setAttribute("src", imageSource[machineOption])
+
+
 }
