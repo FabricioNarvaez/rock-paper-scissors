@@ -55,8 +55,8 @@ header h1{
     font-size: 25px;
 }
 
-.buttonsHeader h2{
-    margin-top: 40px;
+.buttonsHeader h2,
+#scoreContainer h2{
     text-align: center;
 }
 
@@ -93,4 +93,20 @@ header h1{
 
 #vs{
     max-width: 90px;
+}
+
+/* Score */
+#score{
+    display: grid;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+    grid-template-columns: 1fr 0.5fr 1fr;
+    width: 100%;
+    max-width: 200px;
+}
+
+#scoreContainer h2{
+    margin: 0;
+    font-size: 60px;
 }
