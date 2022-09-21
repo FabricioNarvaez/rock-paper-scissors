@@ -1,3 +1,10 @@
+// Key win value
+const options = {
+    paper : "rock",
+    rock : "scissors",
+    scissors: "paper"
+}
+
 function start(){
     const container = document.getElementById("container");
     const gameContainer = document.getElementById("gameContainer");
@@ -14,18 +21,12 @@ function game(userOption){
     console.log(`Me: ${userOption}\nMachine:${machineOption}`)
     if(userOption === machineOption){
         tie();
-    }else if(userOption === "rock" && machineOption === "paper"){
-        lose();
-    }else if(userOption === "rock" && machineOption === "scissors"){
-        win();
-    }else if(userOption === "paper" && machineOption === "rock"){
-        win();
-    }else if(userOption === "paper" && machineOption === "scissors"){
-        lose();
-    }else if(userOption === "scissors" && machineOption === "rock"){
-        lose();
-    }else if(userOption === "scissors" && machineOption === "paper"){
-        win();
+    }else{
+        if(options[userOption] === machineOption){
+            console.log("Win")
+        }else{
+            console.log("Lose")
+        }
     }
 }
 
