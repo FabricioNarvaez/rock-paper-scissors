@@ -21,9 +21,9 @@
         <h1>Rock | Paper | Scissors</h1>
     </header>
 
-    <div id="container">
+    <!-- <div id="container" >
         <button id="startGameBtn" class="buttonStyles" onclick="start()">Start Game</button>
-    </div>
+    </div> -->
 
     <div id="gameContainer" hidden="hidden">
         <div class="buttonsHeader">
@@ -39,6 +39,15 @@
             <button id="scissors" class="gameButton" type="button" onclick="game('scissors')">
                 <img src="assets/images/scissors.png" alt="Scissors">
             </button>
+        </div>
+    </div>
+
+    <div id="winGroup">
+        <h2>¡¡You have win!!</h2>
+        <div id="result">
+            <img id="yourOption" src="assets/images/paper.png" alt="Paper">
+            <img id="vs" src="assets/images/vs.png" alt="vs">
+            <img id="machineOption" src="assets/images/paper.png" alt="Paper">
         </div>
     </div>
 
